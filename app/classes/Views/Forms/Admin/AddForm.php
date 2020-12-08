@@ -13,56 +13,63 @@ class AddForm extends Form
                 'method' => 'POST'
             ],
             'fields' => [
-                'coordinate_x' => [
-                    'label' => '',
-                    'type' => 'number',
-                    'validators' => [
-                        'validate_field_not_empty',
-                        'validate_coordinate'
-                    ],
-                    'extra' => [
-                        'attr' => [
-                            'placeholder' => 'Coordinate X'
-                        ]
-                    ]
-                ],
-                'coordinate_y' => [
-                    'label' => '',
-                    'type' => 'number',
-                    'validators' => [
-                        'validate_field_not_empty',
-                        'validate_coordinate'
-                    ],
-                    'extra' => [
-                        'attr' => [
-                            'placeholder' => 'Coordinate Y'
-                        ]
-                    ]
-                ],
-                'colour' => [
-                    'label' => '',
+                'accessibility' => [
+                    'label' => 'Accessibility',
                     'type' => 'select',
                     'options' => [
-                        'black' => 'Black',
-                        'red' => 'Red',
-                        'green' => 'Green',
-                        'blue' => 'Blue',
+                        'public' => 'Public',
+                        'private' => 'Private'
                     ],
-                    'value' => 'red',
+                    'value' => 'public',
                     'validators' => [
                         'validate_select'
                     ]
-                ]
+                ],
+                'wish' => [
+                    'label' => 'Your wish!',
+                    'type' => 'textarea',
+                    'validators' => [
+                        'validate_field_not_empty'
+                    ],
+                    'extra' => [
+                        'attr' => [
+                            'placeholder' => 'Make a wish...'
+                        ]
+                    ]
+                ],
+                'url' => [
+                    'label' => 'Link to you wish',
+                    'type' => 'text',
+                    'extra' => [
+                        'attr' => [
+                            'placeholder' => 'Type the link...'
+                        ]
+                    ]
+                ],
+                'price' => [
+                    'label' => 'Price of your wish',
+                    'type' => 'text',
+                    'validators' => [
+                        'validate_field_not_empty',
+                        'validate_numeric_values',
+                        'validate_wish_amount'
+                    ],
+                    'extra' => [
+                        'attr' => [
+                            'placeholder' => 'Type the price of your wish...'
+                        ]
+                    ]
+                ],
             ],
             'buttons' => [
                 'submit' => [
-                    'title' => 'Upload pixel!',
+                    'title' => 'Send your wish!',
                     'type' => 'submit',
                 ]
             ],
-            'validators' => [
-                'validate_unique_pixel'
-            ]
+//            'validators' => [
+//                ''
+//            ]
         ]);
     }
 }

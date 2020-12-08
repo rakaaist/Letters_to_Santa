@@ -153,3 +153,28 @@ function validate_email($field_input, &$field){
     return true;
 }
 
+/**
+ * Function validates just alphabetic values in the input
+ *
+ * @param $field_input
+ * @param $field
+ * @return bool
+ */
+function validate_alphabetic_input($field_input, &$field){
+    if (!ctype_alpha($field_input)) {
+        $field['error'] = 'Should include just letters!';
+        return false;
+    }
+
+    return true;
+}
+
+function validate_numeric_values($field_input, &$field) {
+    if (!is_numeric($field_input)) {
+        $field['error'] = 'Should be a number!';
+        return false;
+    }
+
+    return true;
+}
+

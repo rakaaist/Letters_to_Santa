@@ -20,26 +20,34 @@ class Navigation extends View
     public function generate()
     {
         if (App::$session->getUser()) {
-            return [
-                'Home' => [
-                    'link' => '../index.php'
-                ],
-                'Add' => [
-                    'link' => '../admin/add.php'
-                ],
-                'My' => [
-                    'link' => '../admin/my.php'
-                ],
-                'List' => [
-                    'link' => '../admin/list.php'
-                ],
-                'Logout' => [
-                    'link' => '../logout.php'
-                ]
-            ];
+            if (App::$session->getUser()['email'] == 'santa@santa.lt') {
+                return [
+                    'Wishes' => [
+                        'link' => '../admin/santa.php'
+                    ],
+                    'Logout' => [
+                        'link' => '../logout.php'
+                    ]
+                ];
+            } else {
+                return [
+                    'Wishes' => [
+                        'link' => '../index.php'
+                    ],
+                    'Make a wish' => [
+                        'link' => '../admin/newWish.php'
+                    ],
+                    'My' => [
+                        'link' => '../admin/myWishes.php'
+                    ],
+                    'Logout' => [
+                        'link' => '../logout.php'
+                    ]
+                ];
+            }
         } else {
             return [
-                'Home' => [
+                'Wishes' => [
                     'link' => '../index.php'
                 ],
                 'Register' => [
@@ -47,6 +55,9 @@ class Navigation extends View
                 ],
                 'Login' => [
                     'link' => '../login.php'
+                ],
+                'About' => [
+                    'link' => '../about.php'
                 ]
             ];
         }

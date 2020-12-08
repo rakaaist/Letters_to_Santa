@@ -38,15 +38,15 @@ class PixelController extends AuthController
     public function indexEdit()
     {
         $id = $_GET['id'] ?? null;
-        $row = App::$db->getRowById('pixels', $id);
+        $row = App::$db->getRowById('wishes', $id);
         unset($row['email']);
         $this->formEdit->fill($row);
 
         if ($this->formEdit->validateForm()) {
             $clean_inputs = $this->formEdit->values();
             $clean_inputs['email'] = $_SESSION['email'];
-            App::$db->updateRow('pixels', $id, $clean_inputs);
-            header("Location: ../admin/list.php");
+            App::$db->updateRow('wishes', $id, $clean_inputs);
+            header("Location: ../admin/myWishes.php");
             exit();
         }
 
@@ -60,7 +60,7 @@ class PixelController extends AuthController
         if ($this->formAdd->validateForm()) {
             $clean_inputs = $this->formAdd->values();
             $clean_inputs['email'] = $_SESSION['email'];
-            App::$db->insertRow('pixels', $clean_inputs);
+            App::$db->insertRow('wishes', $clean_inputs);
         }
 
         $this->pageAdd->setContent($this->formAdd->render());

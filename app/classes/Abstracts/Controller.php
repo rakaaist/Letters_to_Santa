@@ -40,12 +40,12 @@ abstract class Controller
 	 * delete()
 	 *
 	 * These methods can then be called on each page accordingly, ex.:
-	 * add.php:
+	 * newWish.php:
      * $controller = new PixelsController();
 	 * print $controller->add();
 	 *
 	 *
-	 * my.php:
+	 * myWishes.php:
      * $controller = new ProductsController();
 	 * print $controller->my();
 	 *	

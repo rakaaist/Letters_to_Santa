@@ -15,15 +15,16 @@ class MyController extends AuthController
     public function __construct()
     {
         parent:: __construct();
+
         $this->page = new BasePage([
-            'title' => 'My'
+            'title' => 'MyWishes'
         ]);
     }
 
     public function index() {
 
         $this->content = new View([
-                'pixels' => App::$db->getRowsWhere('pixels', ['email' => $_SESSION['email']])
+                'wishes' => App::$db->getRowsWhere('wishes', ['email' => $_SESSION['email']])
             ]
         );
 

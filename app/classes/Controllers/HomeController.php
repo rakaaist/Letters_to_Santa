@@ -39,12 +39,12 @@ class HomeController extends \App\Abstracts\Controller
      * delete()
      *
      * These methods can then be called on each page accordingly, ex.:
-     * add.php:
+     * newWish.php:
      * $controller = new PixelsController();
      * print $controller->add();
      *
      *
-     * my.php:
+     * myWishes.php:
      * $controller = new ProductsController();
      * print $controller->my();
      *
@@ -55,7 +55,7 @@ class HomeController extends \App\Abstracts\Controller
         $content = new View(
             [
                 'title' => 'Home',
-                'pixels' => App::$db->getRowsWhere('pixels')
+                'wishes' => App::$db->getRowsWhere('wishes', ['accessibility' => 'public'])
             ]
         );
 

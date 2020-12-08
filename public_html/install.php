@@ -12,6 +12,10 @@ require '../bootloader.php';
 App::$db = new FileDB(DB_FILE);
 
 App::$db->createTable('users');
-App::$db->insertRow('users', ['email' => 'test@gmail.com', 'password' => 'test']);
-App::$db->createTable('tracker');
-App::$db->createTable('pixels');
+App::$db->insertRow('users', [
+    'name' => 'Santa',
+    'surname' => 'Santa',
+    'email' => 'santa@santa.lt',
+    'password' => 'santa',
+]);
+App::$db->createTable('wishes');

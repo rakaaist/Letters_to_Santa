@@ -93,22 +93,23 @@ function validate_coordinate($filtered_input, &$field)
 //    return true;
 //}
 
-function validate_unique_pixel($filtered_input, &$form)
-{
-    $pixel_unique = App::$db->getRowsWhere('pixels', [
-        'coordinate_x' => $filtered_input['coordinate_x'],
-        'coordinate_y' => $filtered_input['coordinate_y']
-    ]);
-
-    if (!$pixel_unique) {
-        return true;
-    }
-
-    $form['error'] = 'This pixel is already chosen!';
-    return false;
-}
 
 function validate_row_exists($field_input)
 {
-    return App::$db->rowExists('pixels', $field_input);
+    return App::$db->rowExists('wishes', $field_input);
+}
+
+/**
+ * @param $filtered_input
+ * @param $form
+ * @return bool
+ */
+function validate_wish_amount($filtered_input, &$form) {
+    if ($filtered_input > 100) {
+        $form['error'] = "Value of your wish can't be more than 100 Eur!";
+
+        return false;
+    }
+
+    return true;
 }

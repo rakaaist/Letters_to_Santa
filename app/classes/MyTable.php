@@ -8,7 +8,7 @@ use App\Views\Forms\Admin\DeleteForm;
 use Core\Views\Link;
 use Core\Views\Table;
 
-class ListTable extends Table
+class MyTable extends Table
 {
 
     public function __construct()
@@ -17,6 +17,7 @@ class ListTable extends Table
 
         foreach ($rows as $row_id => &$row) {
             unset($row['accessibility']);
+            unset($row['url']);
             unset($row['email']);
 
             $link = new Link([
@@ -34,7 +35,6 @@ class ListTable extends Table
         parent::__construct([
             'headers' => [
                 'Wish',
-                'Link',
                 'Value',
                 'Edit',
                 'Delete'

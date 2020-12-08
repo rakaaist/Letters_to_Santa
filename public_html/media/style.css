@@ -83,20 +83,27 @@ body {
     font-size: 12px;
 }
 
-.poop-wall {
-    width: 500px;
-    height: 500px;
-    background-image: url('https://i.pinimg.com/originals/62/65/4b/62654bc9be4f20b50928cecb1b2209a8.jpg');
+.letters {
+    max-width: 1000px;
     background-size: cover;
     background-repeat: no-repeat;
-    position: relative;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
 }
 
-.pixel {
-    position: absolute;
-    height: 10px;
-    width: 10px;
+.post {
+    height: 250px;
+    width: 200px;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+
+.photo {
+    height: 120px;
+    width: 120px;
+    object-fit: contain;
 }
 
 table {

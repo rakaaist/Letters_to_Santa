@@ -11,16 +11,47 @@ class RegisterForm extends Form
         parent::__construct(
             [
                 'attr' => [
-                    'method' => 'POST'
+                    'method' => 'POST',
                 ],
                 'fields' => [
+                    'name' => [
+                        'label' => 'Name',
+                        'type' => 'text',
+                        'validators' => [
+                            'validate_field_not_empty',
+                            'validate_alphabetic_input'
+                        ],
+                        'extra' => [
+                            'attr' => [
+                                'placeholder' => 'Name'
+                            ]
+                        ]
+                    ],
+                    'surname' => [
+                        'label' => 'Surname',
+                        'type' => 'text',
+                        'validators' => [
+                            'validate_field_not_empty',
+                            'validate_alphabetic_input'
+                        ],
+                        'extra' => [
+                            'attr' => [
+                                'placeholder' => 'Surname'
+                            ]
+                        ]
+                    ],
                     'email' => [
                         'label' => 'Email',
-                        'type' => 'email',
+                        'type' => 'text',
                         'validators' => [
                             'validate_field_not_empty',
                             'validate_user_unique',
                             'validate_email'
+                        ],
+                        'extra' => [
+                            'attr' => [
+                                'placeholder' => 'Email'
+                            ]
                         ]
                     ],
                     'password' => [
@@ -28,6 +59,11 @@ class RegisterForm extends Form
                         'type' => 'password',
                         'validators' => [
                             'validate_field_not_empty'
+                        ],
+                        'extra' => [
+                            'attr' => [
+                                'placeholder' => 'Password'
+                            ]
                         ]
                     ],
                     'password_repeat' => [
@@ -35,6 +71,11 @@ class RegisterForm extends Form
                         'type' => 'password',
                         'validators' => [
                             'validate_field_not_empty'
+                        ],
+                        'extra' => [
+                            'attr' => [
+                                'placeholder' => 'Repeat password'
+                            ]
                         ]
                     ],
                 ],
