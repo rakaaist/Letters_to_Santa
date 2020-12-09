@@ -45,4 +45,8 @@
         <p class="error"><?php print $data['error']; ?></p>
     <?php endif; ?>
 
+    <?php if (isset($message)): ?>
+        <p><?php print $message; ?></p>
+    <?php endif; ?>
+
 </form>

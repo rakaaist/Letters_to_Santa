@@ -8,7 +8,7 @@ use App\App;
 use App\Views\BasePage;
 use Core\View;
 
-class SantaController extends \App\Abstracts\Controller
+class SantaWishesController extends \App\Abstracts\Controller
 {
 
     public function __construct()
@@ -19,7 +19,7 @@ class SantaController extends \App\Abstracts\Controller
     {
         $content = new View(
             [
-                'title' => 'Home',
+                'title' => 'Santa Wishes',
                 'wishes' => App::$db->getRowsWhere('wishes')
             ]
         );

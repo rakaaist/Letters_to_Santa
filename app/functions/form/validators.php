@@ -113,3 +113,4 @@ function validate_wish_amount($filtered_input, &$form) {
 
     return true;
 }
+

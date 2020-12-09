@@ -23,7 +23,10 @@ class Navigation extends View
             if (App::$session->getUser()['email'] == 'santa@santa.lt') {
                 return [
                     'Wishes' => [
-                        'link' => '../admin/santa.php'
+                        'link' => '../santa/wishes.php'
+                    ],
+                    'Messages' => [
+                        'link' => '../santa/messages.php'
                     ],
                     'Logout' => [
                         'link' => '../logout.php'

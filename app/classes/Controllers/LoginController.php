@@ -26,7 +26,12 @@ class LoginController extends GuestController
         if ($this->form->validateForm()) {
             $clean_inputs = $this->form->values();
             App::$session->login($clean_inputs['email'], $clean_inputs['password']);
-            header("location: /admin/newWish.php");
+
+            if ($clean_inputs['email'] === 'santa@santa.lt' && $clean_inputs['password'] === 'santa') {
+                header("location: /santa/messages.php");
+            } else {
+                header("location: /admin/newWish.php");
+            }
         }
 
         $this->page->setContent($this->form->render());

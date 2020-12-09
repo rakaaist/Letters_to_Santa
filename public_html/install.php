@@ -18,4 +18,10 @@ App::$db->insertRow('users', [
     'email' => 'santa@santa.lt',
     'password' => 'santa',
 ]);
+App::$db->insertRow('messages', [
+    'name_surname' => 'Name Surname',
+    'email' => 'santa@santa.lt',
+    'phone' => 87654321,
+    'text' => 'Message to Santa'
+]);
 App::$db->createTable('wishes');
