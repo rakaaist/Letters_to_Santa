@@ -32,7 +32,6 @@ class SantaMessagesController extends AuthController
 
     public function index()
     {
-
         $this->table = new MessagesTable();
 
         $this->page->setContent($this->table->render());

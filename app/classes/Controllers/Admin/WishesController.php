@@ -9,8 +9,9 @@ use App\Controllers\Base\AuthController;
 use App\Views\BasePage;
 use App\Views\Forms\Admin\AddForm;
 use App\Views\Forms\Admin\EditForm;
+use Core\View;
 
-class PixelController extends AuthController
+class WishesController extends AuthController
 {
     protected $formEdit;
     protected $formAdd;
@@ -45,6 +46,7 @@ class PixelController extends AuthController
         if ($this->formEdit->validateForm()) {
             $clean_inputs = $this->formEdit->values();
             $clean_inputs['email'] = $_SESSION['email'];
+            $clean_inputs['status'] = $row['status'];
             App::$db->updateRow('wishes', $id, $clean_inputs);
             header("Location: ../admin/myWishes.php");
             exit();
@@ -60,6 +62,8 @@ class PixelController extends AuthController
         if ($this->formAdd->validateForm()) {
             $clean_inputs = $this->formAdd->values();
             $clean_inputs['email'] = $_SESSION['email'];
+            $clean_inputs['status'] = 'active';
+
             App::$db->insertRow('wishes', $clean_inputs);
         }
 

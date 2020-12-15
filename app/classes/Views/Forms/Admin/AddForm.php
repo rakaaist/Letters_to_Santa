@@ -65,11 +65,15 @@ class AddForm extends Form
                 'submit' => [
                     'title' => 'Send your wish!',
                     'type' => 'submit',
+                ],
+                'clear' => [
+                    'title' => 'Clear',
+                    'type' => 'reset',
                 ]
             ],
-//            'validators' => [
-//                ''
-//            ]
+            'validators' => [
+                'validate_max_wishes'
+            ]
         ]);
     }
 }

@@ -23,6 +23,8 @@ class LoginController extends GuestController
 
     public function index()
     {
+
+
         if ($this->form->validateForm()) {
             $clean_inputs = $this->form->values();
             App::$session->login($clean_inputs['email'], $clean_inputs['password']);

@@ -4,7 +4,10 @@
             <h2><?php print $wish['wish']; ?></h2>
             <h3><?php print $wish['price']; ?> Eur</h3>
             <?php if (!empty($wish['url'])): ?>
-            <img class="photo" src="<?php print $wish['url']; ?>" alt="">
+                <img class="photo" src="<?php print $wish['url']; ?>" alt="">
+            <?php endif; ?>
+            <?php if (isset($wish['form'])): ?>
+                <div><?php print $wish['form']; ?></div>
             <?php endif; ?>
         </div>
     <?php endforeach; ?>

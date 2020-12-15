@@ -36,6 +36,7 @@ class MyTable extends Table
             'headers' => [
                 'Wish',
                 'Value',
+                'Status',
                 'Edit',
                 'Delete'
             ],

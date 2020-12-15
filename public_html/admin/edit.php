@@ -1,10 +1,10 @@
 <?php
 
-use App\Controllers\Admin\PixelController;
+use App\Controllers\Admin\WishesController;
 
 require '../../bootloader.php';
 
-$controller = new PixelController();
+$controller = new WishesController();
 
 print $controller->indexEdit();
 

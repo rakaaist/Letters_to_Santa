@@ -104,9 +104,23 @@ function validate_row_exists($field_input)
  * @param $form
  * @return bool
  */
-function validate_wish_amount($filtered_input, &$form) {
+function validate_wish_amount($filtered_input, &$field)
+{
     if ($filtered_input > 100) {
-        $form['error'] = "Value of your wish can't be more than 100 Eur!";
+        $field['error'] = "Value of your wish can't be more than 100 Eur!";
+
+        return false;
+    }
+
+    return true;
+}
+
+function validate_max_wishes(&$form)
+{
+    $rows = App::$db->getRowsWhere('wishes', ['email' => App::$session->getUser()['email']]);
+
+    if (count($rows) > 3) {
+        $form['error'] = "You've already made 3 wishes!";
 
         return false;
     }
