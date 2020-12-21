@@ -115,7 +115,7 @@ function validate_wish_amount($filtered_input, &$field)
     return true;
 }
 
-function validate_max_wishes(&$form)
+function validate_max_wishes($filtered_input, &$form)
 {
     $rows = App::$db->getRowsWhere('wishes', ['email' => App::$session->getUser()['email']]);
 
